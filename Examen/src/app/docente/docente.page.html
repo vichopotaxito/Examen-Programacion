@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Docente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Mis Clases</ion-card-title>
+    </ion-card-header>
+    <ion-button shape="round" (click)="mostrarClases()" >Mostrar</ion-button>
+    <ion-list [style.visibility]="clases">
+      <ion-item>
+        <ion-label>{{ asignatura }}</ion-label>
+        <ion-label>{{ seccion }}</ion-label>
+        <ion-button slot="end" (click)="mostrarQr()">Iniciar</ion-button>  
+      </ion-item>
+    </ion-list>
+    <!-- <ion-button expand="block" shape="round" (click)="obtData()">OBT Datos</ion-button> -->
+    <ion-card-content style="text-align: center;">
+      Todas las clases se mostrarán aqui.
+    </ion-card-content>
+  </ion-card>
+  <ion-content [style.visibility]="content_visibility">
+    <div>
+      <ion-card class="ion-text-center">
+        <ion-card-content>
+          <qrcode 
+            [qrdata]="qrAsignatura" 
+            [width]="256" 
+            [errorCorrectionLevel]="'M'">
+          </qrcode>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-content>
+<ion-footer style="align-items: center; display: flex; justify-content: center;">
+  <ion-button fill="clear" style="color: red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" (click)="cerrarSesion()">Cerrar sesion</ion-button>
+</ion-footer>
+

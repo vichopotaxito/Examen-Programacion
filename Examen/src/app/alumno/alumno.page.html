@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center;">Alumno</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [style.visibility]="content_visibility" >
+  <div>
+    <ion-button expand="block" class="ion-margin" (click)="startScan()">
+      Scan QR code
+    </ion-button>
+    <ion-item *ngIf="scannedResult">
+      <ion-label class="ion-text-wrap">Resultado del scan: {{scannedResult}}</ion-label>
+    </ion-item>
+  </div>
+</ion-content>
+  <ion-footer style="align-items: center; display: flex; justify-content: center;">
+    <ion-button fill="clear" style="color: red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" (click)="cerrarSesion()">Cerrar sesion</ion-button>
+  </ion-footer>
+
